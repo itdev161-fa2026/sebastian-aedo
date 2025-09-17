@@ -1,7 +1,10 @@
 import mongoose from "mongoose";
 import config from "config";
+import dotenv from "dotenv";
 
-const db = config.get("mongoURI");
+dotenv.config();
+
+const db = process.env.MONGO_URI || config.get("mongoURI");
 
 const connectDatabase = async () => {
   try {
